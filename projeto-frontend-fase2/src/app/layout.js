@@ -5,7 +5,7 @@ import NavBar from "./components/NavBar/NavBar";
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
-});
+}); 
 
 export default function RootLayout({ children }) {
   return (

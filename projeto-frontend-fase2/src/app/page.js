@@ -32,6 +32,9 @@ export default function Home() {
       <Box
         className={styles.homepage}
         sx={{
+          position: "relative",
+          overflow: "hidden",
+          minHeight: "100vh",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
@@ -39,13 +42,29 @@ export default function Home() {
           gap: { xs: 4, md: 10 },
           padding: { md: 15, xs: 5 },
           textAlign: { xs: "center", md: "left" },
-          background: "linear-gradient(120deg, #fafafa, #f2f2f2)",
+
+          "&::before": {
+            content: '""',
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            backgroundImage: 'url("/ft-background.jpg")',
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            backgroundRepeat: "no-repeat",
+            filter: "blur(8px)",
+            transform: "scale(1.1)",
+            zIndex: -1,
+          },
         }}
       >
         <Box
           sx={{
             maxWidth: 350,
             filter: "drop-shadow(0 10px 25px rgba(0,0,0,0.15))",
+            display: { xs: "none", md: "flex" },
           }}
         >
           <img
@@ -92,7 +111,7 @@ export default function Home() {
           </Typography>
 
           <Typography sx={{ color: "#555", lineHeight: 1.7, mb: 3 }}>
-            Bem-vindo ao nosso site de séries! Aqui você pode encontrar
+            Aqui você pode encontrar
             informações sobre suas séries favoritas, cadastrar novas séries e
             explorar a lista completa de títulos disponíveis. Navegue pelo menu
             para começar!
@@ -126,7 +145,7 @@ export default function Home() {
       <Typography
         variant="h6"
         align="center"
-        sx={{ mb: 2, fontWeight: "bold" }}
+        sx={{ mb: 2, fontWeight: "bold", paddingTop: 4 }}
       >
         Algumas Séries cadastradas
       </Typography>

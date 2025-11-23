@@ -15,7 +15,6 @@ import Container from "@mui/material/Container";
 import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
-import AdbIcon from "@mui/icons-material/Adb";
 
 export default function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -46,126 +45,124 @@ export default function NavBar() {
   return (
     <>
       <AppBar position="static" sx={{ backgroundColor: "#343434" }}>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Typography
-            variant="h6"
-            noWrap
-            sx={{
-              mr: 2,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            CadSeries
-          </Typography>
+        <Container maxWidth="xl">
+          <Toolbar disableGutters>
+            <Box
+              sx={{
+                display: { xs: "none", md: "flex" },
+                backgroundImage: 'url("/icon-cinema.png")',
+                width: 40,
+                height: 40,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            ></Box>
 
-          {/* MENU MOBILE */}
-          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
-            <IconButton
-              size="large"
-              aria-label="menu"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
-              onClick={handleOpenNavMenu}
-              color="inherit"
-            >
-              <MenuIcon />
-            </IconButton>
+            {/* menu mobile */}
+            <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
+              <IconButton
+                size="large"
+                aria-label="menu"
+                aria-controls="menu-appbar"
+                aria-haspopup="true"
+                onClick={handleOpenNavMenu}
+                color="inherit"
+              >
+                <MenuIcon />
+              </IconButton>
 
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
-              anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
-              transformOrigin={{ vertical: "top", horizontal: "left" }}
-              sx={{ display: { xs: "block", md: "none" } }}
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorElNav}
+                open={Boolean(anchorElNav)}
+                onClose={handleCloseNavMenu}
+                anchorOrigin={{ vertical: "bottom", horizontal: "left" }}
+                transformOrigin={{ vertical: "top", horizontal: "left" }}
+                sx={{ display: { xs: "block", md: "none" } }}
+              >
+                {pages.map((page) => (
+                  <MenuItem key={page.label} onClick={handleCloseNavMenu}>
+                    <Link
+                      href={page.path}
+                      style={{
+                        textDecoration: "none",
+                        color: "inherit",
+                        width: "100%",
+                      }}
+                    >
+                      <Typography textAlign="center">{page.label}</Typography>
+                    </Link>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+
+            {/* logo mobile */}
+            <Box
+              sx={{
+                display: { xs: "flex", md: "none" },
+                position: "absolute",
+                left: "50%",
+                transform: "translateX(-50%)",
+                backgroundImage: 'url("/icon-cinema.png")',
+                width: 30,
+                height: 30,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            ></Box>
+
+            <Box
+              sx={{
+                flexGrow: 1,
+                display: { xs: "none", md: "flex" },
+                alignItems: "center",
+                justifyContent: "center",
+                gap: 5,
+              }}
             >
               {pages.map((page) => (
-                <MenuItem key={page.label} onClick={handleCloseNavMenu}>
-                  <Link
-                    href={page.path}
-                    style={{
-                      textDecoration: "none",
-                      color: "inherit",
-                      width: "100%",
-                    }}
-                  >
-                    <Typography textAlign="center">{page.label}</Typography>
-                  </Link>
-                </MenuItem> 
+                <Button
+                  key={page.label}
+                  component={Link}
+                  href={page.path}
+                  sx={{ my: 2, color: "white", display: "block" }}
+                >
+                  {page.label}
+                </Button>
               ))}
-            </Menu>
-          </Box>
+            </Box>
 
-          {/* LOGO MOBILE */}
-          <Typography
-            variant="h5"
-            noWrap
-            sx={{
-              mr: 2,
-              display: { xs: "flex", md: "none" },
-              flexGrow: 1,
-              fontFamily: "monospace",
-              fontWeight: 700,
-              letterSpacing: ".3rem",
-              color: "inherit",
-              textDecoration: "none",
-            }}
-          >
-            CadSeries
-          </Typography>
-
-          {/* MENU DESKTOP */}
-          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, alignItems: "center", justifyContent: "center", gap: 5}}>
-            {pages.map((page) => (
-              <Button
-                key={page.label}
-                component={Link}
-                href={page.path}
-                sx={{ my: 2, color: "white", display: "block" }}
+            <Box sx={{ flexGrow: 0 }}>
+              <Tooltip title="Configurações">
+                <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt="User" />
+                </IconButton>
+              </Tooltip>
+              <Menu
+                sx={{ mt: "45px" }}
+                anchorEl={anchorElUser}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
+                anchorOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
+                transformOrigin={{
+                  vertical: "top",
+                  horizontal: "right",
+                }}
               >
-                {page.label}
-              </Button>
-            ))}
-          </Box>
-
-          {/* AVATAR / MENU USUÁRIO */}
-          <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Configurações">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                <Avatar alt="User" />
-              </IconButton>
-            </Tooltip>
-            <Menu
-              sx={{ mt: "45px" }}
-              anchorEl={anchorElUser}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-              anchorOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
-            >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
-                </MenuItem>
-              ))}
-            </Menu>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+                {settings.map((setting) => (
+                  <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                    <Typography textAlign="center">{setting}</Typography>
+                  </MenuItem>
+                ))}
+              </Menu>
+            </Box>
+          </Toolbar>
+        </Container>
+      </AppBar>
     </>
   );
 }

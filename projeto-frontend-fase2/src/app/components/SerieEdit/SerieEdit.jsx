@@ -161,7 +161,11 @@ export default function SerieEdit({ open, onClose, serieCard, onSave }) {
           sx={{ mb: 2 }}
         />
 
-        <Button variant="contained" fullWidth onClick={handleSaveClick}>
+        <Button variant="contained" fullWidth onClick={handleSaveClick}
+        sx={{
+            backgroundColor: "#fb8c00",
+            "&:hover": { backgroundColor: "#ffa726" },
+          }}>
           Salvar
         </Button>
       </Box>
