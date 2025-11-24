@@ -18,7 +18,7 @@ export default function SerieEdit({ open, onClose, serieCard, onSave }) {
     seasons: "",
     releaseDate: "",
     director: "",
-    production: "",
+    production: "", 
     category: "",
     watchedAt: "",
     imgUrl: "",

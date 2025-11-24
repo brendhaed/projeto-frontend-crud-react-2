@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import "./Navbar.css";
 import Link from "next/link";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
@@ -51,14 +50,14 @@ export default function NavBar() {
               sx={{
                 display: { xs: "none", md: "flex" },
                 backgroundImage: 'url("/icon-cinema.png")',
-                width: 40,
-                height: 40,
+                width: 35,
+                height: 35,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
             ></Box>
 
-            {/* menu mobile */}
+            {/* mobile */}
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
               <IconButton
                 size="large"
@@ -97,7 +96,7 @@ export default function NavBar() {
               </Menu>
             </Box>
 
-            {/* logo mobile */}
+            {/* desktop */}
             <Box
               sx={{
                 display: { xs: "flex", md: "none" },

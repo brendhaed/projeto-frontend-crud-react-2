@@ -1,36 +1,51 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Projeto CRUD com React - parte 2
 
-First, run the development server:
+Este é um projeto de gerenciamento de séries assistidas, feita com React para a Disciplina de Desenvolvimento Frontend do curso de Análise e Desenvolvimento de Sistemas - FullStack.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tecnologias utilizadas:
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<div align="center">
+<img src="https://skillicons.dev/icons?i=next" width="48" height="48" alt="Next" />
+<img src="https://skillicons.dev/icons?i=vite" width="48" height="48" alt="Vite" />
+</div>
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Parte II: 
+- Foram reaproveitados os componentes da fase I
+- Implementação de rotas com NextJS
+- Utilização da biblioteca Material UI para a estilização
+- Consumir a API Rest de series fornecida
+- Implementação de testes unitários com Jest
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Pré requisitos:
 
-## Learn More
+- Node.js (versão 18+) e o npm instalados na sua máquina.
+  [Download Node.js](https://nodejs.org/en/download)
 
-To learn more about Next.js, take a look at the following resources:
+## 🚀 Como rodar o projeto:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Clonar o projeto: `git clone https://github.com/brendhaed/projeto-frontend-crud-react-2`
+- Entrar na pasta: cd projeto-frontend-fase2
+- Instalar dependências: `npm install` ou `yarn`
+- Para rodar no servidor: abra o terminal e digite `npm run dev`para NPM ou `yarn dev` para Yarn.
+- Para rodar a API: entrar na pasta `cd serieJournal-api` e depois `npm start`para NPM ou `yarn start` para Yarn.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 📁 Estrutura de Pastas
 
-## Deploy on Vercel
+Resumo da estrutura de pastas principal:
+-  Em Next.js as pastas são colocadas dentro de app, não precisa de react-router-dom como no react. Cada rota precisa estar dentro de app com um arquivo **page.js** dentro do nome da rota.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **public:** Armazena arquivos estáticos, como imagens, icons, etc.
+- **src/app/components:** Contém todos os componentes React do projeto.
+- **src/app/hooks:** Contém os hooks reutilizáveis no projeto.
+- **src/app/page.js:** Arquivo na raiz de app, é a página principal do projeto
+- **src/app/formulario:** Rota que leva para a página do formulario.
+- **src/app/series:** Rota que leva para a página de séries.
+- **src/app/sobre:** Rota que leva para a página de sobre.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Tutorial com imagens:
+[Abrir pasta do frontend](../projeto-frontend-fase2/public/imgs-readme/ft-1.png)
+[Rodar projeto no navegador](../projeto-frontend-fase2/public/imgs-readme/ft-2.png)
+[Abrir pasta da API](../projeto-frontend-fase2/public/imgs-readme/ft-3.png)
+[Rodar api ](../projeto-frontend-fase2/public/imgs-readme/ft-4.png)
+[Como a api deve aparecer no navegador](../projeto-frontend-fase2/public/imgs-readme/ft-5.png)

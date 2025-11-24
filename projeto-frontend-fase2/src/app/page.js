@@ -40,12 +40,13 @@ export default function Home() {
           alignItems: "center",
           flexDirection: { xs: "column-reverse", md: "row" },
           gap: { xs: 4, md: 10 },
-          padding: { md: 15, xs: 5 },
+          padding: { md: 15, xs: 2 },
           textAlign: { xs: "center", md: "left" },
 
           "&::before": {
             content: '""',
-            position: "absolute",
+            position: "fixed",
+            inset: 0,
             top: 0,
             left: 0,
             width: "100%",
@@ -60,23 +61,10 @@ export default function Home() {
           },
         }}
       >
-        <Box
-          sx={{
-            maxWidth: 350,
-            filter: "drop-shadow(0 10px 25px rgba(0,0,0,0.15))",
-            display: { xs: "none", md: "flex" },
-          }}
-        >
-          <img
-            src="/desktop-computer.png"
-            alt="Home"
-            style={{ width: "100%" }}
-          />
-        </Box>
 
         <Box
           sx={{
-            maxWidth: 500,
+            maxWidth: { xs: "100%", md: 500 },
             backgroundColor: "white",
             padding: 4,
             borderRadius: 4,
@@ -145,7 +133,7 @@ export default function Home() {
       <Typography
         variant="h6"
         align="center"
-        sx={{ mb: 2, fontWeight: "bold", paddingTop: 4 }}
+        sx={{ mb: 2, fontWeight: "bold", paddingTop: 4, color: "#ffff" }}
       >
         Algumas Séries cadastradas
       </Typography>

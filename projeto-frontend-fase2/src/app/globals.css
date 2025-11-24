@@ -25,21 +25,3 @@ a {
   color: inherit;
   text-decoration: none;
 }
-
-.custom-shape-divider-top-1763683019 {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-}
-
-.custom-shape-divider-top-1763683019 svg {
-  position: relative;
-  display: block;
-  width: calc(130% + 1.3px);
-  height: 250px;
-}
-
-.custom-shape-divider-top-1763683019 .shape-fill {
-  fill: #343434; 
-}

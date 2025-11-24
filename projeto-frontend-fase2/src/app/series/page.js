@@ -24,7 +24,6 @@ export default function SeriesList() {
   const [selectedSerieCard, setSelectedSerieCard] = useState(null);
   const [openModal, setOpenModal] = useState(false);
   const [filteredSeries, setFilteredSeries] = useState([]);
-
   const [notFound, setNotFound] = useState(false);
 
   // Carrega as series cadastradas
@@ -49,12 +48,13 @@ export default function SeriesList() {
     try {
       await deleteSerieCard(id);
       setSerieCards((prev) => prev.filter((item) => item.id !== id));
+      setFilteredSeries((prev) => prev.filter((item) => item.id !== id));
     } catch (error) {
       console.log("Erro ao deletar:", error);
     }
   };
 
-  // Abre o modal de edição
+  // Abre o modal de edição da série
   const handleOpenModal = (serieCard) => {
     setSelectedSerieCard(serieCard);
     setOpenModal(true);
@@ -72,6 +72,10 @@ export default function SeriesList() {
       setSerieCards((prev) =>
         prev.map((item) => (item.id === updatedSerie.id ? updatedSerie : item))
       );
+      setFilteredSeries((prev) =>
+        prev.map((item) => (item.id === updatedSerie.id ? updatedSerie : item))
+      );
+
       handleCloseModal();
     } catch (error) {
       console.error("Erro ao salvar edição:", error);
@@ -93,10 +97,9 @@ export default function SeriesList() {
     );
 
     setFilteredSeries(filtradas);
-    setNotFound(filtradas.length === 0); // ativa mensagem se não houver resultados
+    setNotFound(filtradas.length === 0);
   };
 
-  // Loading
   if (loading) {
     return (
       <Box
@@ -133,13 +136,11 @@ export default function SeriesList() {
         </Typography>
       </Box>
 
-      {/* Mensagem de nenhuma série encontrada */}
-      {notFound ? (
+      {/* Mensagem quando nenhuma serie é encontrada */}
+      {notFound && (
         <Typography variant="h6" align="center" sx={{ mt: 2 }}>
           Nenhuma série encontrada.
         </Typography>
-      ) : (
-        filteredSeries.map((serie) => <Card key={serie.id}></Card>)
       )}
 
       {/* Lista de Cards */}
