@@ -10,4 +10,4 @@ describe("NavBar", () => {
     expect(screen.getByText("Cadastrar Série")).toBeInTheDocument();
     expect(screen.getByText("Lista de Séries")).toBeInTheDocument();
   });
-});
+}); 

@@ -140,7 +140,7 @@ export default function Home() {
 
       <Box
         sx={{
-          display: "flex",
+          display: "flex", 
           flexWrap: "wrap",
           justifyContent: "center",
           gap: 3,
