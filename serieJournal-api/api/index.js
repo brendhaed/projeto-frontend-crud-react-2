@@ -1,17 +1,21 @@
-import fs from "fs";
-import path from "path";
+const fs = require("fs");
+const path = require("path");
 
-export default function handler(req, res) {
-  const filePath = path.join(
-    process.cwd(),
-    "serieJournal-api/data/series.json"
-  );
+module.exports = (req, res) => {
+  try {
+    const filePath = path.join(
+      process.cwd(),
+      "serieJournal-api",
+      "data",
+      "series.json"
+    );
 
-  const data = JSON.parse(fs.readFileSync(filePath, "utf8"));
+    const file = fs.readFileSync(filePath, "utf8");
+    const data = JSON.parse(file);
 
-  if (req.method === "GET") {
-    return res.status(200).json(data);
+    res.status(200).json(data);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Failed to load series data" });
   }
-
-  res.status(405).json({ message: "Method not allowed" });
-}
+};
