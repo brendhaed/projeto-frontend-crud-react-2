@@ -5,7 +5,6 @@ module.exports = (req, res) => {
   try {
     const filePath = path.join(
       process.cwd(),
-      "serieJournal-api",
       "data",
       "series.json"
     );
