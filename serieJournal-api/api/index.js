@@ -1,20 +1,9 @@
-const fs = require("fs");
-const path = require("path");
+const series = require("../data/series.json");
 
 module.exports = (req, res) => {
   try {
-    const filePath = path.join(
-      process.cwd(),
-      "data",
-      "series.json"
-    );
-
-    const rawData = fs.readFileSync(filePath, "utf-8");
-    const data = JSON.parse(rawData);
-
-    res.status(200).json(data);
+    res.status(200).json(series);
   } catch (error) {
-    console.error(error);
     res.status(500).json({
       error: "Falha em carregar os dados",
       details: error.message
