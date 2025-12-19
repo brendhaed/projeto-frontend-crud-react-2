@@ -11,11 +11,7 @@ module.exports = (req, res) => {
   }
 
   try {
-    const filePath = path.join(
-      process.cwd(),
-      "data",
-      "series.json"
-    );
+    const filePath = path.join(process.cwd(), "api", "data", "series.json");
 
     const rawData = fs.readFileSync(filePath, "utf-8");
     const data = JSON.parse(rawData);
