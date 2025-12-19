@@ -13,7 +13,6 @@ module.exports = (req, res) => {
   try {
     const filePath = path.join(
       process.cwd(),
-      "serieJournal-api",
       "data",
       "series.json"
     );
@@ -23,10 +22,9 @@ module.exports = (req, res) => {
 
     res.status(200).json(data);
   } catch (error) {
-    console.error("FILE ERROR:", error);
     res.status(500).json({
       error: "Falha em carregar os dados",
-      details: error.message
+      details: error.message,
     });
   }
 };
