@@ -1,6 +1,3 @@
-const fs = require("fs");
-const path = require("path");
-
 module.exports = (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
@@ -10,23 +7,7 @@ module.exports = (req, res) => {
     return res.status(200).end();
   }
 
-  try {
-    const filePath = path.join(
-      process.cwd(),
-      "serieJournal-api",
-      "data",
-      "series.json"
-    );
-
-    const rawData = fs.readFileSync(filePath, "utf-8");
-    const data = JSON.parse(rawData);
-
-    res.status(200).json(data);
-  } catch (error) {
-    console.error("FILE ERROR:", error);
-    res.status(500).json({
-      error: "Falha em carregar os dados",
-      details: error.message
-    });
-  }
+  res.status(200).json({
+    status: "API running",
+  });
 };
